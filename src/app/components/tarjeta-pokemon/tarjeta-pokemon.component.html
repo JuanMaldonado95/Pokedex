@@ -1,0 +1,7 @@
+<div id="container">
+    <div id="tarjeta" (click)="selectPokemon.emit(idPokemon)">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{idPokemon}}.png" alt="">
+        <span *ngIf="data">No. {{idPokemon}}</span>
+        <span *ngIf="data">{{data.name | titlecase }}</span>
+    </div>
+</div>

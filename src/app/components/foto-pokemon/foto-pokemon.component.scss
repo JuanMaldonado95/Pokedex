@@ -1,0 +1,15 @@
+#container {
+    border: 4px solid #575259;
+    max-width: 400px;
+    aspect-ratio: 1; // Esto hace cuadrado el elemento
+    outline: #575259; // Esto hace que se ponga un cuadro externo al elemento que no ocupa espacio
+    border-radius: 20px;
+    background: #D6CEF2;
+
+    img {
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        image-rendering: pixelated;
+    }
+}

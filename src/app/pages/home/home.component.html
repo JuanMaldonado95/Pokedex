@@ -1,0 +1,8 @@
+<div class="container">
+    <!-- <app-detalle-pokemon></app-detalle-pokemon> -->
+    <app-foto-pokemon [pokemon]="pokemonSeleccionado"></app-foto-pokemon>
+    <div id="tarjetasContainer" (scroll)="onScroll($event)" #tarjetas>
+        <app-tarjeta-pokemon *ngFor="let pokemon of listaPokemon" [data]="pokemon"
+            (selectPokemon)="tarjetaSeleccionada($event)"></app-tarjeta-pokemon>
+    </div>
+</div>

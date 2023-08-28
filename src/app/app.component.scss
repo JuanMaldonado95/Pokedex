@@ -1,0 +1,20 @@
+header {
+    display: flex;
+    height: 80px;
+    background-color: #9F84D9;
+}
+
+footer {
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D6CEF2;
+}
+
+.seccionuno, .secciondos, .secciontres {
+    display: flex;
+    align-items: center;
+    width: 33%;
+    text-align: center;
+}
