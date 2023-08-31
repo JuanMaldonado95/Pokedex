@@ -1,15 +1,76 @@
-#container {
-    border: 4px solid #575259;
-    max-width: 400px;
-    aspect-ratio: 1; // Esto hace cuadrado el elemento
-    outline: #575259; // Esto hace que se ponga un cuadro externo al elemento que no ocupa espacio
+// #container {
+//     border: 4px solid #575259;
+//     max-width: 400px;
+//     aspect-ratio: 1; // Esto hace cuadrado el elemento
+//     outline: #575259; // Esto hace que se ponga un cuadro externo al elemento que no ocupa espacio
+//     border-radius: 20px;
+//     background: #D6CEF2;
+
+
+//     img {
+//         width: 100%;
+//         background-size: cover;
+//         background-position: center;
+//         image-rendering: pixelated;
+//     }
+// }
+
+// #side {
+//     display: grid;
+//     justify-items: left;
+// }
+
+#principal {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr 1.2fr;
+    align-items: center;
+}
+
+#p-left {
     border-radius: 20px;
-    background: #D6CEF2;
+    margin: 5px;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+#p-center {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     img {
-        width: 100%;
+        width: 60%;
         background-size: cover;
         background-position: center;
         image-rendering: pixelated;
     }
+}
+
+#p-right {
+    margin: 5px;
+    border-radius: 20px;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.card {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.card .info {
+    text-align: center;
 }

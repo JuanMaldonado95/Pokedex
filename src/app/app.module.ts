@@ -9,6 +9,7 @@ import { DetallePokemonComponent } from './components/detalle-pokemon/detalle-po
 import { TarjetaPokemonComponent } from './components/tarjeta-pokemon/tarjeta-pokemon.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { TarjetaPokemonComponent } from './components/tarjeta-pokemon/tarjeta-po
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

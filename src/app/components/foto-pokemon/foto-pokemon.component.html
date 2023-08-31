@@ -1,3 +1,29 @@
-<div id="container">
-    <img src="{{pokemon?.sprites?.front_default}}" alt="">
+<div id="principal">
+    <div id="p-left">
+        <div class="info">
+            <h2>Id Pokemon:</h2>
+            <h2>{{pokemon?.id}}</h2>
+        </div>
+        <div class="info">
+            <h2>Generación:</h2>
+            <h2>{{generacion}}</h2>
+        </div>
+    </div>
+    <div id="p-center">
+        <h1>{{pokemon?.name | uppercase}}</h1>
+        <img src="{{pokemon?.sprites?.front_default}}" alt="">
+        <div class="card">
+            <div class="info">
+                <h2>Description:</h2>
+                <h2>{{descriptionPokemon}}</h2>
+            </div>
+        </div>
+    </div>
+    <div id="p-right">
+        <div class="info">
+            <h2>Categoria:</h2>
+            <h2>{{genusPokemon}}</h2>
+        </div>
+        <button>Detalle</button>
+    </div>
 </div>

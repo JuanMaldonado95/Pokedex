@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Pokemon, PokemonService, Resultado } from 'src/app/services/pokemon.service';
+import { Pokemon, PokemonChainEvolution, PokemonDescripcion, PokemonService, Resultado } from 'src/app/services/pokemon.service';
+import { PokemonSpecies } from '../../services/pokemon.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,16 @@ import { Pokemon, PokemonService, Resultado } from 'src/app/services/pokemon.ser
 })
 export class HomeComponent implements OnInit {
 
+  idEvolucion : string = "";
+
   listaPokemon: Resultado[] = [];
   pagina: number = 1;
   cargando: boolean = false;
   pokemonSeleccionado?: Pokemon;
-
+  pokemonSpecies?:PokemonSpecies;
+  pokemonEvolutionChain?:PokemonChainEvolution;
+  pokemonDescripcion?:PokemonDescripcion;
+  
   constructor(private pokemonService: PokemonService) { }
   @ViewChild('tarjetas') tarjetasElement!: ElementRef;
 
@@ -40,7 +46,17 @@ export class HomeComponent implements OnInit {
   }
 
   async tarjetaSeleccionada(id: string){
-    this.pokemonSeleccionado = await this.pokemonService.getById(id)
+    this.pokemonSeleccionado = await this.pokemonService.getById(id);
+    this.pokemonSpecies = await this.pokemonService.getByIdSpecies(id);
+    if(this.pokemonSpecies){
+      this.idEvolucion = this.pokemonSpecies.evolution_chain.url.substring(42, this.pokemonSpecies.evolution_chain.url.length - 1);
+      this.cadenaEvolucion(this.idEvolucion);
+    }
+    this.pokemonDescripcion = await this.pokemonService.getByIdDescripcion(id);
+  }
+
+  async cadenaEvolucion(idEvolucion:string){
+    this.pokemonEvolutionChain = await this.pokemonService.getByIdEvolution(idEvolucion);
   }
 
 }

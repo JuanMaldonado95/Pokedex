@@ -7,20 +7,39 @@ export class PokemonService {
 
   constructor() { }
 
-  async getByPage(page:number, size: number = 40):Promise<Resultado[]>{
-    if(page > 5) return [];
-    const offset = size*(page-1);
+  async getByPage(page: number, size: number = 40): Promise<Resultado[]> {
+    if (page > 1000) return [];
+    const offset = size * (page - 1);
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${size}&offset=${offset}`)
     const resJson = await res.json();
-    if(resJson.results.length > 0) return resJson.results
+    if (resJson.results.length > 0) return resJson.results
     return [];
   };
 
-  async getById(id:string):Promise<Pokemon>{
+  async getById(id: string): Promise<Pokemon> {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
     return await res.json();
   }
 
+  async getByIdEvolution(id: string): Promise<PokemonChainEvolution> {
+    const res = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}`)
+    return await res.json();
+  }
+
+  async getByIdSpecies(id: string): Promise<PokemonSpecies> {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+    return await res.json();
+  }
+
+  async getByIdDescripcion(id: string): Promise<PokemonDescripcion> {
+    const res = await fetch(`https://pokeapi.co/api/v2/characteristic/${id}`)
+    return await res.json();
+  }
+
+  async getByIdGender(id: string): Promise<PokemonGender> {
+    const res = await fetch(`https://pokeapi.co/api/v2/gender/${1}`)
+    return await res.json();
+  }
 }
 
 export interface Data {
@@ -387,4 +406,154 @@ export interface Pokemon {
   stats: Stat[];
   types: Type[];
   past_types: PastType[];
+}
+
+export interface PokemonChainEvolution {
+  id: number;
+  baby_trigger_item: null;
+  chain: Chain;
+}
+
+export interface Chain {
+  is_baby: boolean;
+  species: Species;
+  evolution_details: EvolutionDetail[] | null;
+  evolves_to: Chain[];
+}
+
+export interface EvolutionDetail {
+  item: null;
+  trigger: Species;
+  gender: null;
+  held_item: null;
+  known_move: null;
+  known_move_type: null;
+  location: null;
+  min_level: number;
+  min_happiness: null;
+  min_beauty: null;
+  min_affection: null;
+  needs_overworld_rain: boolean;
+  party_species: null;
+  party_type: null;
+  relative_physical_stats: null;
+  time_of_day: string;
+  trade_species: null;
+  turn_upside_down: boolean;
+}
+
+export interface Species {
+  name: string;
+  url: string;
+}
+
+
+export interface PokemonSpecies {
+  id: number;
+  name: string;
+  order: number;
+  gender_rate: number;
+  capture_rate: number;
+  base_happiness: number;
+  is_baby: boolean;
+  is_legendary: boolean;
+  is_mythical: boolean;
+  hatch_counter: number;
+  has_gender_differences: boolean;
+  forms_switchable: boolean;
+  growth_rate: Color;
+  pokedex_numbers: PokedexNumber[];
+  egg_groups: Color[];
+  color: Color;
+  shape: Color;
+  evolves_from_species: Color;
+  evolution_chain: EvolutionChain;
+  habitat: habitat;
+  generation: Color;
+  names: Name[];
+  flavor_text_entries: FlavorTextEntry[];
+  form_descriptions: FormDescription[];
+  genera: Genus[];
+  varieties: Variety[];
+}
+
+export interface habitat {
+  name: string;
+  url: string;
+}
+
+export interface Color {
+  name: string;
+  url: string;
+}
+
+export interface EvolutionChain {
+  url: string;
+}
+
+export interface FlavorTextEntry {
+  flavor_text: string;
+  language: Color;
+  version: Color;
+}
+
+export interface FormDescription {
+  description: string;
+  language: Color;
+}
+
+export interface Genus {
+  genus: string;
+  language: Color;
+}
+
+export interface Name {
+  name: string;
+  language: Color;
+}
+
+export interface PokedexNumber {
+  entry_number: number;
+  pokedex: Color;
+}
+
+export interface Variety {
+  is_default: boolean;
+  pokemon: Color;
+}
+
+
+export interface PokemonDescripcion {
+  id: number;
+  gene_modulo: number;
+  possible_values: number[];
+  highest_stat: HighestStat;
+  descriptions: Description[];
+}
+
+export interface Description {
+  description: string;
+  language: HighestStat;
+}
+
+export interface HighestStat {
+  name: string;
+  url: string;
+}
+
+export interface PokemonGender {
+  id: number;
+  name: string;
+  pokemon_species_details: PokemonSpeciesDetail[];
+  required_for_evolution: RequiredForEvolution[];
+}
+
+export interface PokemonSpeciesDetail {
+  rate: number;
+  pokemon_species: RequiredForEvolution;
+}
+
+export interface RequiredForEvolution {
+  name: string;
+  url: string;
 }

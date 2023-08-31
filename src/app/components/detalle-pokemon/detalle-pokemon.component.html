@@ -1,0 +1,31 @@
+<div id="container">
+    <div id="secc1">
+        <div id="seccevolucion" *ngFor="let evoluciones of evolucionesCompletas">
+            <img src="{{evoluciones?.sprites?.front_default}}" alt="">
+            <span>Id Pokemon: {{evoluciones.id}}</span>
+            <span>Nombre: {{evoluciones.name}}</span>
+            <span>Peso: {{evoluciones.weight}}</span>
+        </div>
+    </div>
+    <div id="secc2">Detalles
+        <div>
+            <h3>Altura: {{altura}}</h3>
+            <h3>Categoria {{genusPokemon}}</h3>
+            <h3>Peso: {{peso}}</h3>
+            <h3>Habitat: {{habitat}}</h3>
+        </div>
+        <div>
+            Tipo
+            Debilidad
+        </div>
+        <div>
+
+            <!-- <canvas baseChart [datasets]="demoradarChartData" [labels]="demoradarChartLabels"
+                [chartType]="radarChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas> -->
+
+        </div>
+    </div>
+    <div id="secc3">Movimientos</div>
+    <div id="secc4">Equipo de batallas</div>
+</div>
