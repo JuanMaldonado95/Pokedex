@@ -1,5 +1,24 @@
+#home {
+    display: grid;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
 
-.container, .containerwot {
+    h1 {
+        font-size: 100px;
+        color: rgba(255, 0, 0, 0.726);
+        margin: 0;
+    }
+
+    span {
+        font-size: 50px;
+        color: rgba(0, 0, 0, 0.726);
+        margin: 0;
+    }
+}
+
+.container,
+.containerwot {
     height: calc(100vh - 120px);
 }
 
@@ -10,7 +29,10 @@
 }
 
 .containerwot {
-    min-height: 100vh;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
 }
 
 #tarjetasContainer {
@@ -20,6 +42,5 @@
     border-radius: 10px;
     background: rgba(255, 0, 0, 0.239);
     padding-left: 10px;
-    margin: 10px;
+    margin-top: 10px;
 }
-

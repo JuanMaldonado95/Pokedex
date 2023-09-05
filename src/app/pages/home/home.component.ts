@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Pokemon, PokemonChainEvolution, PokemonDescripcion, PokemonService, Resultado } from 'src/app/services/pokemon.service';
 import { PokemonSpecies } from '../../services/pokemon.service';
 
@@ -21,14 +21,22 @@ export class HomeComponent implements OnInit {
   pokemonSpecies?: PokemonSpecies;
   pokemonEvolutionChain?: PokemonChainEvolution;
   pokemonDescripcion?: PokemonDescripcion;
+  boPrincipalPages:boolean = true;
 
   constructor(private pokemonService: PokemonService) { }
   @ViewChild('tarjetas') tarjetasElement!: ElementRef;
 
   @Input() bodesplegarTarjetas: boolean = false;
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['bodesplegarTarjetas']) {
+      this.boPrincipalPages = false
+    }
+  }
+
   ngOnInit(): void {
     this.CargaLista();
+    this.boPrincipalPages = true
   };
 
   async CargaLista() {

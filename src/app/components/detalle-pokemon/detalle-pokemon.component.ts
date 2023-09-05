@@ -4,10 +4,13 @@ import { PokemonService, Stat } from '../../services/pokemon.service';
 
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 
+import { fadeInOutAnimation } from '../../animaciones/animations'
+
 @Component({
   selector: 'app-detalle-pokemon',
   templateUrl: './detalle-pokemon.component.html',
-  styleUrls: ['./detalle-pokemon.component.scss']
+  styleUrls: ['./detalle-pokemon.component.scss'],
+  animations: [fadeInOutAnimation]
 })
 export class DetallePokemonComponent {
 
