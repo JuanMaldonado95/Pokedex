@@ -1,31 +1,25 @@
-.container {
+
+.container, .containerwot {
     height: calc(100vh - 120px);
+}
+
+.container {
     display: grid;
     grid-template-columns: 3fr 1fr;
     align-items: center;
 }
 
-// app-foto-pokemon {
-//     margin-left: 250px;
-// }
+.containerwot {
+    min-height: 100vh;
+}
 
 #tarjetasContainer {
     max-height: 100%;
     overflow-y: scroll;
-    border: 1px solid #575259;
+    border: 1px solid #f0f0f0;
     border-radius: 10px;
-    background: #C3B6F2;
+    background: rgba(255, 0, 0, 0.239);
     padding-left: 10px;
+    margin: 10px;
 }
 
-// app-detalle {
-//     position: absolute;
-//     z-index: 1;
-//     left: -90vw;
-//     transition: 0.5s;
-//     transition-timing-function: ease-in-out;
-
-//     &.abierto {
-//         left: 0;
-//     }
-// }

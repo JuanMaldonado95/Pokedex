@@ -1,10 +1,10 @@
-<div class="container">
-    <app-foto-pokemon [pokemon]="pokemonSeleccionado" [pokemonSpecies]="pokemonSpecies"
+<div [ngClass]="{'containerwot': !bodesplegarTarjetas, 'container': bodesplegarTarjetas}" >
+    <app-foto-pokemon id="fotoPokemonContainer" [pokemon]="pokemonSeleccionado" [pokemonSpecies]="pokemonSpecies"
         [pokemonDescripcion]="pokemonDescripcion"></app-foto-pokemon>
-    <div id="tarjetasContainer" (scroll)="onScroll($event)" #tarjetas>
-        <app-tarjeta-pokemon *ngFor="let pokemon of listaPokemon" [data]="pokemon"
+    <div *ngIf="bodesplegarTarjetas" [@fadeInOut] id="tarjetasContainer" (scroll)="onScroll($event)" #tarjetas>
+        <app-tarjeta-pokemon  *ngFor="let pokemon of listaPokemon" [data]="pokemon"
             (selectPokemon)="tarjetaSeleccionada($event)"></app-tarjeta-pokemon>
     </div>
 </div>
-
-<app-detalle-pokemon [pokemonEvolutionChain]="pokemonEvolutionChain" [pokemon]="pokemonSeleccionado" [pokemonSpecies]="pokemonSpecies"></app-detalle-pokemon>
+<app-detalle-pokemon [pokemonEvolutionChain]="pokemonEvolutionChain" [pokemon]="pokemonSeleccionado"
+    [pokemonSpecies]="pokemonSpecies"></app-detalle-pokemon>

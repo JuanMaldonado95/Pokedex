@@ -1,22 +1,21 @@
 <header>
   <div id="titulo">
-    <h1>Pokemón</h1>
+    <h1><strong>POKEMÓN</strong></h1>
   </div>
-  <div id="pokemonRegistrados"></div>
-  <div id="hora"></div>
+  <div id="pokemonRegistrados">
+    <button class="btn primary" (click)="desplegarTarjetas()">Selecciona</button>
+    <span>V. 1.0</span>
+  </div>
 </header>
-<router-outlet></router-outlet>
+<app-home [bodesplegarTarjetas]="bodesplegarTarjetas"></app-home>
 <footer>
   <div class="seccionuno">
-    <p>boton 1</p>
-    <p>boton 2</p>
+    <h2>Work in progress</h2>
   </div>
   <div class="secciondos">
-    <p>boton 3</p>
-    <p>boton 4</p>
-  </div>
-  <div class="secciontres">
-    <p>boton 5</p>
-    <p>boton 6</p>
+    <ion-icon name="logo-angular"></ion-icon>
+    <ion-icon name="logo-html5"></ion-icon>
+    <ion-icon name="logo-css3"></ion-icon>
+    <ion-icon name="logo-javascript"></ion-icon>
   </div>
 </footer>

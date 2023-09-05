@@ -1,31 +1,90 @@
-<div id="container">
-    <div id="secc1">
+<div id="container" *ngIf="boMostrarInfo" [@fadeInOut]>
+    <div id="secc2">
+        <div class="left">
+            <div class="info">
+                <h3 [ngClass]="colorClass">Height</h3>
+                <span>{{altura}}</span>
+            </div>
+            <div class="info">
+                <h3 [ngClass]="colorClass">Category</h3>
+                <span>{{genusPokemon}}</span>
+            </div>
+            <div class="info">
+                <h3 [ngClass]="colorClass">Weight</h3>
+                <span>{{peso}}</span>
+            </div>
+            <div class="info">
+                <h3 [ngClass]="colorClass">Habitat</h3>
+                <span>{{habitat}}</span>
+            </div>
+        </div>
+        <div class="center">
+            <div class="info">
+                <h3 [ngClass]="colorClass">Type</h3>
+                <span class="card" *ngFor="let type of type">{{type.name}}</span>
+            </div>
+            <div class="info">
+                <h3 [ngClass]="colorClass">NO Damage To</h3>
+                <span class="card" *ngFor="let weakness of damageMore">{{weakness}}</span>
+            </div>
+            <div class="info">
+                <h3 [ngClass]="colorClass">Damage From</h3>
+                <span class="card" *ngFor="let hit of damage">{{hit}}</span>
+            </div>
+        </div>
+    </div>
+    <div><h1 [ngClass]="colorClass">MovePool</h1></div>
+    <div id="secc3">
+        <table class="table align-middle mb-0 bg-white">
+            <thead class="bg-light">
+                <tr>
+                    <th [ngClass]="colorClass">Move</th>
+                    <th [ngClass]="colorClass">Type</th>
+                    <th [ngClass]="colorClass">Category</th>
+                    <th [ngClass]="colorClass">Type Damage</th>
+                    <th [ngClass]="colorClass">Accurancy</th>
+                    <th [ngClass]="colorClass">Power</th>
+                    <th [ngClass]="colorClass">pp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let move of moves">
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">{{move.name}}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{move.type?.name}}</p>
+                    </td>
+                    <td>
+                        <span class="badge badge-success rounded-pill d-inline">{{move.meta?.category?.name}}</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-success rounded-pill d-inline">{{move.damage_class?.name}}</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-success rounded-pill d-inline">{{move.accuracy}}</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-success rounded-pill d-inline">{{move.power}}</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-success rounded-pill d-inline">{{move.pp}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div><h1 [ngClass]="colorClass">Chain Evolution</h1></div>
+    <div id="secc1">        
         <div id="seccevolucion" *ngFor="let evoluciones of evolucionesCompletas">
             <img src="{{evoluciones?.sprites?.front_default}}" alt="">
-            <span>Id Pokemon: {{evoluciones.id}}</span>
-            <span>Nombre: {{evoluciones.name}}</span>
-            <span>Peso: {{evoluciones.weight}}</span>
+            <span [ngClass]="colorClass">Id Pokemon: {{evoluciones.id}}</span>
+            <span [ngClass]="colorClass">Nombre: {{evoluciones.name}}</span>
+            <span [ngClass]="colorClass">Peso: {{evoluciones.weight}}</span>
         </div>
     </div>
-    <div id="secc2">Detalles
-        <div>
-            <h3>Altura: {{altura}}</h3>
-            <h3>Categoria {{genusPokemon}}</h3>
-            <h3>Peso: {{peso}}</h3>
-            <h3>Habitat: {{habitat}}</h3>
-        </div>
-        <div>
-            Tipo
-            Debilidad
-        </div>
-        <div>
-
-            <!-- <canvas baseChart [datasets]="demoradarChartData" [labels]="demoradarChartLabels"
-                [chartType]="radarChartType" (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas> -->
-
-        </div>
-    </div>
-    <div id="secc3">Movimientos</div>
-    <div id="secc4">Equipo de batallas</div>
 </div>

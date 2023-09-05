@@ -5,7 +5,7 @@ import { PokemonService } from '../../services/pokemon.service';
 @Component({
   selector: 'app-tarjeta-pokemon',
   templateUrl: './tarjeta-pokemon.component.html',
-  styleUrls: ['./tarjeta-pokemon.component.scss']
+  styleUrls: ['./tarjeta-pokemon.component.scss'],
 })
 export class TarjetaPokemonComponent {
 
@@ -26,5 +26,4 @@ export class TarjetaPokemonComponent {
       return
     }
   }
-
 }

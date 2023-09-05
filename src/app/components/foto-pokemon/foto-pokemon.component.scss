@@ -1,24 +1,4 @@
-// #container {
-//     border: 4px solid #575259;
-//     max-width: 400px;
-//     aspect-ratio: 1; // Esto hace cuadrado el elemento
-//     outline: #575259; // Esto hace que se ponga un cuadro externo al elemento que no ocupa espacio
-//     border-radius: 20px;
-//     background: #D6CEF2;
-
-
-//     img {
-//         width: 100%;
-//         background-size: cover;
-//         background-position: center;
-//         image-rendering: pixelated;
-//     }
-// }
-
-// #side {
-//     display: grid;
-//     justify-items: left;
-// }
+@import "../../../styles.scss";
 
 #principal {
     display: grid;
@@ -29,7 +9,6 @@
 #p-left {
     border-radius: 20px;
     margin: 5px;
-    height: 40vh;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -47,21 +26,30 @@
         background-position: center;
         image-rendering: pixelated;
     }
+
+    h1 {
+        font-size: 50px;
+        text-decoration-line: underline;
+    }
 }
 
 #p-right {
     margin: 5px;
     border-radius: 20px;
-    height: 40vh;
     display: flex;
     flex-direction: column;
-    align-items: left;
+    justify-content: center;
 }
 
 .info {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .card {
@@ -74,3 +62,28 @@
 .card .info {
     text-align: center;
 }
+
+.info:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+// .btn {
+//     align-items: center;
+//     border: none;
+//     color: rgb(50, 49, 49);
+//     padding: 14px 28px;
+//     cursor: pointer;
+//     border-radius: 100px;
+//     width: 50%;
+//     margin: 10px;
+
+// }
+
+// .primary {
+//     background-color: #f0f0f0;
+// }
+
+// .primary:hover {
+//     background: #dbd9d9;
+// }

@@ -37,9 +37,20 @@ export class PokemonService {
   }
 
   async getByIdGender(id: string): Promise<PokemonGender> {
-    const res = await fetch(`https://pokeapi.co/api/v2/gender/${1}`)
+    const res = await fetch(`https://pokeapi.co/api/v2/gender/${id}`)
     return await res.json();
   }
+
+  async getByIdTypeDamage(id: string): Promise<PokemonTypeDamage> {
+    const res = await fetch(`https://pokeapi.co/api/v2/type/${id}`)
+    return await res.json();
+  }
+
+  async getByIdMoves(id: string): Promise<PokemonMoves> {
+    const res = await fetch(`https://pokeapi.co/api/v2/move/${id}`)
+    return await res.json();
+  }
+
 }
 
 export interface Data {
@@ -556,4 +567,123 @@ export interface PokemonSpeciesDetail {
 export interface RequiredForEvolution {
   name: string;
   url: string;
+}
+
+export interface PokemonTypeDamage {
+  damage_relations:      DamageRelations;
+  game_indices:          GameIndex[];
+  generation:            Generation;
+  id:                    number;
+  move_damage_class:     Generation;
+  moves:                 Generation[];
+  name:                  string;
+  names:                 Name[];
+  past_damage_relations: any[];
+  pokemon:               Pokemon[];
+}
+
+export interface DamageRelations {
+  double_damage_from: Generation[];
+  double_damage_to:   any[];
+  half_damage_from:   any[];
+  half_damage_to:     Generation[];
+  no_damage_from:     Generation[];
+  no_damage_to:       Generation[];
+}
+
+export interface Generation {
+  name: string;
+  url:  string;
+}
+
+export interface GameIndex {
+  game_index: number;
+  generation: Generation;
+}
+
+export interface Name {
+  language: Generation;
+  name:     string;
+}
+
+export interface Pokemon {
+  pokemon: Generation;
+  slot:    number;
+}
+
+export interface PokemonMoves {
+  id:                   number;
+  name:                 string;
+  accuracy:             number;
+  effect_chance:        any;
+  pp:                   number;
+  priority:             number;
+  power:                number;
+  contest_combos:       ContestCombos;
+  contest_type:         ContestType;
+  contest_effect:       ContestEffect;
+  damage_class:         ContestType;
+  effect_entries:       EffectEntry[];
+  effect_changes:       any[];
+  generation:           ContestType;
+  meta:                 Meta;
+  names:                Name[];
+  past_values:          any[];
+  stat_changes:         any[];
+  super_contest_effect: ContestEffect;
+  target:               ContestType;
+  type:                 ContestType;
+  learned_by_pokemon:   ContestType[];
+  flavor_text_entries:  FlavorTextEntry[];
+}
+
+export interface ContestCombos {
+  normal: Normal;
+  super:  Normal;
+}
+
+export interface Normal {
+  use_before: ContestType[] | null;
+  use_after:  null;
+}
+
+export interface ContestType {
+  name: string;
+  url:  string;
+}
+
+export interface ContestEffect {
+  url: string;
+}
+
+export interface EffectEntry {
+  effect:       string;
+  short_effect: string;
+  language:     ContestType;
+}
+
+export interface FlavorTextEntry {
+  flavor_text:   string;
+  language:      ContestType;
+  version_group: ContestType;
+}
+
+export interface Meta {
+  ailment:        ContestType;
+  category:       ContestType;
+  min_hits:       null;
+  max_hits:       null;
+  min_turns:      null;
+  max_turns:      null;
+  drain:          number;
+  healing:        number;
+  crit_rate:      number;
+  ailment_chance: number;
+  flinch_chance:  number;
+  stat_chance:    number;
+}
+
+export interface Name {
+  name:     string;
+  language: ContestType;
 }

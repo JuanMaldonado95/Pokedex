@@ -8,6 +8,9 @@ import { FotoPokemonComponent } from './components/foto-pokemon/foto-pokemon.com
 import { DetallePokemonComponent } from './components/detalle-pokemon/detalle-pokemon.component';
 import { TarjetaPokemonComponent } from './components/tarjeta-pokemon/tarjeta-pokemon.component';
 
+import { NgChartsModule } from 'ng2-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -16,12 +19,14 @@ import { TarjetaPokemonComponent } from './components/tarjeta-pokemon/tarjeta-po
     HomeComponent,
     FotoPokemonComponent,
     DetallePokemonComponent,
-    TarjetaPokemonComponent
+    TarjetaPokemonComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    
+    BrowserAnimationsModule,
+    NgChartsModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

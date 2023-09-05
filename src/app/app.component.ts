@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pokedex';
+  bodesplegarTarjetas: boolean = false;
+
+  desplegarTarjetas() {
+    this.bodesplegarTarjetas = !this.bodesplegarTarjetas;
+  }
 }

@@ -1,29 +1,33 @@
-<div id="principal">
+<div id="principal"  *ngIf="boMostrarInfo" [@fadeInOut]>
     <div id="p-left">
         <div class="info">
-            <h2>Id Pokemon:</h2>
-            <h2>{{pokemon?.id}}</h2>
+            <h2 [ngClass]="colorClass">Id Pokemon</h2>
+            <span>{{pokemonDetail?.id}}</span>
         </div>
         <div class="info">
-            <h2>Generación:</h2>
-            <h2>{{generacion}}</h2>
+            <h2 [ngClass]="colorClass">Generation</h2>
+            <span>{{generacion}}</span>
+        </div>
+        <div class="info">
+            <h2 [ngClass]="colorClass">Category</h2>
+            <span>{{genusPokemon}}</span>
         </div>
     </div>
     <div id="p-center">
-        <h1>{{pokemon?.name | uppercase}}</h1>
-        <img src="{{pokemon?.sprites?.front_default}}" alt="">
-        <div class="card">
+        <div>
+            <h1 [ngClass]="colorClass">{{pokemonDetail?.name | uppercase}}</h1>
+        </div>
+        <img src="{{pokemonDetail?.sprites?.front_default}}" alt="">
+        <div class="card" >
             <div class="info">
-                <h2>Description:</h2>
-                <h2>{{descriptionPokemon}}</h2>
+                <h2 [ngClass]="colorClass">Description</h2>
+                <span>{{descriptionPokemon}}</span>
             </div>
         </div>
+        <!-- <button class="btn primary">Detalle</button> -->
     </div>
     <div id="p-right">
-        <div class="info">
-            <h2>Categoria:</h2>
-            <h2>{{genusPokemon}}</h2>
-        </div>
-        <button>Detalle</button>
+        <canvas baseChart class="chart" [data]="radarChartData" [options]="radarChartOptions" [type]="radarChartType">
+        </canvas>
     </div>
 </div>

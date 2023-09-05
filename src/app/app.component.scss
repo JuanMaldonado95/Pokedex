@@ -1,7 +1,40 @@
 header {
     display: flex;
     height: 80px;
-    background-color: #9F84D9;
+    background-color: #f0f0f0;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.763) 50%, white 50%);
+    border-bottom: 3px solid rgba(255, 0, 0, 0.763);
+}
+
+#pokemonRegistrados {
+    display: flex;
+    align-items: center;
+    margin-right: 70px;
+
+    .button{
+        align-items: center;
+
+    }
+}
+
+.btn {
+    align-items: center;
+    border: none;
+    color: rgb(50, 49, 49);
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 100px;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.primary {
+    background-color: #f0f0f0;
+}
+
+.primary:hover {
+    background: #dbd9d9;
 }
 
 footer {
@@ -9,12 +42,24 @@ footer {
     height: 40px;
     justify-content: space-between;
     align-items: center;
-    background-color: #D6CEF2;
+    //background-color: #D6CEF2;
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.763) 50%, white 50%);
 }
 
-.seccionuno, .secciondos, .secciontres {
+.seccionuno,
+.secciondos,
+.secciontres {
     display: flex;
     align-items: center;
-    width: 33%;
+    justify-content: space-between;
     text-align: center;
+    
+    h2 {
+        margin: 0;
+    }
 }
+
+ion-icon {
+    font-size: 30px;
+    color: rgba(255, 0, 0, 0.763);
+  }
