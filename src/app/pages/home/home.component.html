@@ -1,4 +1,4 @@
-<div id="home" *ngIf="boPrincipalPages">
+<div id="principal" *ngIf="boPrincipalPages">
     <h1>Work in Progress</h1>
     <span>by: JD</span>
 </div>
@@ -11,6 +11,6 @@
                 (selectPokemon)="tarjetaSeleccionada($event)"></app-tarjeta-pokemon>
         </div>
     </div>
-    <app-detalle-pokemon id="detallesPokemon" [pokemonEvolutionChain]="pokemonEvolutionChain"
-        [pokemon]="pokemonSeleccionado" [pokemonSpecies]="pokemonSpecies"></app-detalle-pokemon>
+    <app-detalle-pokemon [pokemonEvolutionChain]="pokemonEvolutionChain" [pokemon]="pokemonSeleccionado"
+        [pokemonSpecies]="pokemonSpecies"></app-detalle-pokemon>
 </div>

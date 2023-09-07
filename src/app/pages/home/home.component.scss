@@ -1,19 +1,17 @@
-#home {
+#principal {
     display: grid;
-    height: 80vh;
+    min-height: 80vh;
     justify-content: center;
     align-items: center;
 
     h1 {
         font-size: 100px;
         color: rgba(255, 0, 0, 0.726);
-        margin: 0;
     }
 
     span {
         font-size: 50px;
         color: rgba(0, 0, 0, 0.726);
-        margin: 0;
     }
 }
 
@@ -30,9 +28,6 @@
 
 .containerwot {
     height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
 }
 
 #tarjetasContainer {
@@ -43,4 +38,5 @@
     background: rgba(255, 0, 0, 0.239);
     padding-left: 10px;
     margin-top: 10px;
+    margin-right: 20px;
 }

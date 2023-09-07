@@ -4,13 +4,10 @@ import { PokemonService, Stat } from '../../services/pokemon.service';
 
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 
-import { fadeInOutAnimation } from '../../animaciones/animations'
-
 @Component({
   selector: 'app-detalle-pokemon',
   templateUrl: './detalle-pokemon.component.html',
   styleUrls: ['./detalle-pokemon.component.scss'],
-  animations: [fadeInOutAnimation]
 })
 export class DetallePokemonComponent {
 
@@ -179,7 +176,6 @@ export class DetallePokemonComponent {
         if(this.damageMore){
           for ( let color of this.damageMore)
           this.colorTypeDamageMore = color
-          console.log(this.colorTypeDamageMore)
         }
       });
       this.typeDamage.forEach((x: {
